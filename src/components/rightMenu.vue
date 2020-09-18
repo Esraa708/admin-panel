@@ -1,11 +1,5 @@
 <template>
-  <v-navigation-drawer
-    :value="menuToggle"
-    width="260px"
-    app
-    right
-    color="#17131c"
-  >
+  <v-navigation-drawer :value="menuToggle" width="260px" app right color="#17131c">
     <div class="first-sec mt-md-4">
       <div class="company mt-md-5 mb-5">
         <img src="../assets/no-logo.png" alt class="ml-md-4" width="60" />
@@ -55,10 +49,7 @@
           style="background:#17131c"
         >
           <v-list-item-content class="inner-list">
-            <v-list-item-title
-              class="items"
-              v-text="subItem.title"
-            ></v-list-item-title>
+            <v-list-item-title class="items" v-text="subItem.title"></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list-group>
@@ -72,7 +63,7 @@
       >
         <template v-slot:activator>
           <v-list-item-content>
-            <v-list-item-title v-text="item.title"> </v-list-item-title>
+            <v-list-item-title v-text="item.title"></v-list-item-title>
           </v-list-item-content>
         </template>
 
@@ -83,18 +74,28 @@
           style="background:#17131c"
         >
           <v-list-item-content class="inner-list">
-            <v-list-item-title class="items" >
-              <router-link to="/settings/payment" class="links">
-                {{ subItem.title }}
-              </router-link>
+            <v-list-item-title class="items">
+              <router-link to="/settings/payment" class="links">{{ subItem.title }}</router-link>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list-group>
-    
     </v-list>
   </v-navigation-drawer>
 </template>
+<style>
+.v-application .primary--text {
+  color: #c5bacb !important;
+  caret-color: #c5bacb !important;
+}
+.v-application .primary--text a {
+  color: #c5bacb !important;
+  caret-color: #c5bacb !important;
+}
+.v-list-group:hover {
+  color: #44a787;
+}
+</style>
 <style lang="scss">
 @import "../assets/sass/colors";
 
@@ -185,11 +186,11 @@
 .inner-list {
   background: $main-color;
 }
-.links{
+.links {
   text-decoration: none;
-  color: #C5BACB;
+  color: #c5bacb;
 }
-.links:hover{
+.links:hover {
   cursor: pointer;
 }
 </style>
@@ -203,7 +204,7 @@ export default {
       this.menuToggle = data;
     });
   },
-  data: function() {
+  data: function () {
     return {
       menuToggle: true,
       items: [
