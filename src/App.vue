@@ -1,60 +1,40 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+  <v-app id="inspire" style="
+  background: #17131c;">
+    <!-- <RightMenu :menuToggle="drawer"></RightMenu> -->
+    <RightMenu></RightMenu>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+    <AppBar></AppBar>
 
     <v-main>
-      <HelloWorld/>
+      <v-container class="pa-0" fluid>
+        <router-view></router-view>
+      </v-container>
     </v-main>
+   
+   
   </v-app>
 </template>
-
+<style lang="scss" >
+@import "../src/assets/sass/colors";
+body {
+  background-color: $main-color;
+}
+h1 {
+  color: $green;
+}
+</style>
 <script>
-import HelloWorld from './components/HelloWorld';
-
+import RightMenu from "./components/rightMenu";
+import AppBar from "./components/AppBar";
 export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
+  name: "mainPage",
+  props: {
+    source: String,
   },
-
+  components: { RightMenu, AppBar },
   data: () => ({
-    //
+    // drawer: false,
   }),
 };
 </script>
